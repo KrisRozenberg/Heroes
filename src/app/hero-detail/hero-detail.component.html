@@ -1,13 +1,158 @@
-<div *ngIf="hero">
+<!--TODO: same form for add & edit -> create component-->
 
-  <h2>{{hero.name | uppercase}} Details</h2>
-  <div>id: {{hero.id}}</div>
-  <div>
-    <label for="hero-name">Hero name: </label>
-    <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
-  </div>
+<div *ngIf="path == 'addHero'; else notAdd">
+  <form [formGroup]="heroForm" (ngSubmit)="addHero()">
+    <div>
+      <mat-form-field  appearance="fill" >
+        <mat-label>Hero name: </mat-label>
+        <input matInput placeholder="Mr. Super Hero" formControlName="name"/>
+        <mat-error *ngIf="heroForm.controls['name'].hasError('required')">
+          Name is required!
+        </mat-error>
+      </mat-form-field>
+    </div>
 
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Hero race:</mat-label>
+        <mat-select formControlName="race">
+          <mat-option [value]=0>Human</mat-option>
+          <mat-option [value]=1>Creature</mat-option>
+          <mat-option [value]=2>Homuncul</mat-option>
+        </mat-select>
+        <mat-error *ngIf="heroForm.controls['race'].hasError('required')">
+          Race is required!
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Hero class:</mat-label>
+        <mat-select formControlName="heroClass">
+          <mat-option [value]=0>Warrior</mat-option>
+          <mat-option [value]=1>Mage</mat-option>
+          <mat-option [value]=2>Clown</mat-option>
+        </mat-select>
+        <mat-error *ngIf="heroForm.controls['heroClass'].hasError('required')">
+          Class is required!
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Hero level:</mat-label>
+        <input matInput placeholder="42" formControlName="level"/>
+        <mat-error *ngIf="heroForm.controls['level'].hasError('required')">
+          Level is required!
+        </mat-error>
+        <mat-error *ngIf="
+        heroForm.controls['level'].hasError('min') || heroForm.controls['level'].hasError('max')">
+          Level must be from 1 to 99!
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <button mat-flat-button (click)="goBack()">Go back</button>
+      <button mat-flat-button type="submit" [disabled]="!isFormValid()">Add hero</button>
+    </div>
+  </form>
 </div>
 
-<button type="button" (click)="goBack()">go back</button>
-<button type="button" (click)="save()">save</button>
+
+
+<ng-template #notAdd >
+  <div *ngIf="hero && path == 'editHero/:id'; else view">
+    <div class="mat-title">{{hero.name | uppercase}}</div>
+
+    <mat-list>
+      <mat-list-item>id: {{hero?.id}}</mat-list-item>
+    </mat-list>
+
+    <form [formGroup]="heroForm" (ngSubmit)="saveHero()">
+      <div>
+        <mat-form-field  appearance="fill" >
+          <mat-label>Hero name: </mat-label>
+          <input matInput placeholder="Mr. Super Hero" formControlName="name" [(ngModel)]="hero.name"/>
+          <mat-error *ngIf="heroForm.controls['name'].hasError('required')">
+            Name is required!
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Hero race:</mat-label>
+          <mat-select formControlName="race" [(ngModel)]="hero.race">
+            <mat-option [value]=0>Human</mat-option>
+            <mat-option [value]=1>Creature</mat-option>
+            <mat-option [value]=2>Homuncul</mat-option>
+          </mat-select>
+          <mat-error *ngIf="heroForm.controls['race'].hasError('required')">
+            Race is required!
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Hero class:</mat-label>
+          <mat-select formControlName="heroClass" [(ngModel)]="hero.heroClass">
+            <mat-option [value]=0>Warrior</mat-option>
+            <mat-option [value]=1>Mage</mat-option>
+            <mat-option [value]=2>Clown</mat-option>
+          </mat-select>
+          <mat-error *ngIf="heroForm.controls['heroClass'].hasError('required')">
+            Class is required!
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Hero level:</mat-label>
+          <input matInput placeholder="42" formControlName="level" [(ngModel)]="hero.level"/>
+          <mat-error *ngIf="heroForm.controls['level'].hasError('required')">
+            Level is required!
+          </mat-error>
+          <mat-error *ngIf="heroForm.controls['level'].hasError('pattern')">
+            Level must be a number!
+          </mat-error>
+          <mat-error *ngIf="
+        heroForm.controls['level'].hasError('min') || heroForm.controls['level'].hasError('max')">
+            Level must be from 1 to 99!
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <button mat-flat-button (click)="goBack()">Go back</button>
+        <button mat-flat-button type="submit" [disabled]="!isFormValid()">Save hero</button>
+      </div>
+    </form>
+  </div>
+
+
+
+  <ng-template #view>
+    <div class="mat-title">{{hero?.name | uppercase}} Details</div>
+
+    <mat-list>
+      <mat-list-item>id: {{hero?.id}}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>name: {{hero?.name}}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>race: {{hero ? getHeroRace(hero.race) : "none"}}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>class: {{hero ? getHeroClass(hero.heroClass) : "none"}}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>level: {{hero?.level}}</mat-list-item>
+    </mat-list>
+
+    <button mat-flat-button (click)="goBack()">Go back</button>
+  </ng-template>
+</ng-template>
+
+

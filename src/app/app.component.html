@@ -1,7 +1,10 @@
-<h1>{{title}}</h1>
+<div class="mat-headline">{{title}}</div>
+
 <nav>
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/heroes">Heroes</a>
+  <a mat-flat-button routerLink="/dashboard">Dashboard</a>
+  <a mat-flat-button routerLink="/heroes">Heroes</a>
+  <a mat-flat-button routerLink="/addHero">add hero</a>
 </nav>
+<br>
+
 <router-outlet></router-outlet>
-<app-messages></app-messages>

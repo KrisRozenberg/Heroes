@@ -1,27 +1,35 @@
-label {
-  color: #435960;
-  font-weight: bold;
+.mat-title {
+  margin: 0;
 }
 
-input {
-  font-size: 1em;
-  padding: .5rem;
+.mat-form-field {
+  padding: 0 8px 0 0;
 }
 
-button {
-  margin-top: 20px;
-  background-color: #eee;
-  padding: 1rem;
-  border-radius: 4px;
-  font-size: 1rem;
+.mat-flat-button {
+  margin: 12px 4px 4px 0;
+  color: white;
+  background-color: #444444;
 }
 
-button:hover {
-  background-color: #cfd8dc;
+.mat-flat-button:hover {
+  color: black;
+  background-color: gray;
 }
 
-button:disabled {
-  background-color: #eee;
-  color: #ccc;
+.mat-flat-button.mat-button-disabled{
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgray;
+  background-color: gray;
+  color: lightgray;
   cursor: auto;
+}
+
+.mat-list {
+  max-width: 15rem;
+}
+
+form > div {
+  margin: 0 0 10px 0;
 }

@@ -1,12 +1,13 @@
 <div id="search-component">
-  <label for="search-box">Hero Search</label>
-  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+  <mat-form-field appearance="fill" >
+    <mat-label>Hero Search</mat-label>
+    <input matInput #searchBox (input)="search(searchBox.value)" placeholder="Some Hero"/>
+  </mat-form-field>
 
-  <ul class="search-result">
-    <li *ngFor="let hero of heroes$ | async" >
-      <a routerLink="/detail/{{hero.id}}">
-        {{hero.name}}
-      </a>
-    </li>
-  </ul>
+  <mat-list>
+    <mat-list-item *ngFor="let hero of heroes$ | async">
+      <a mat-flat-button routerLink="/detail/{{hero.id}}">{{hero.name}}</a>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
 </div>

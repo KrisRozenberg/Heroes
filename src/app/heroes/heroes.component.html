@@ -1,21 +1,17 @@
-<h2>My Heroes</h2>
+<div class="mat-title">My Heroes</div>
 
-<div>
-  <label for="new-hero">Hero name: </label>
-  <input id="new-hero" #heroName />
-  <button type="button" class="add-button" (click)="add(heroName.value); heroName.value=''">
-    Add hero
-  </button>
-</div>
+<mat-list>
+  <mat-list-item *ngFor="let hero of heroes">
 
-<ul class="heroes">
-  <li *ngFor="let hero of heroes">
-
-    <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span>
-      <span class="name">{{hero.name}}</span>
+    <a mat-flat-button routerLink="/detail/{{hero.id}}" matBadge="{{hero.id}}" matBadgePosition="before">
+      {{hero.name}}
     </a>
-    <button type="button" class="delete" title="delete hero" (click)="delete(hero)">x</button>
+    <a mat-icon-button routerLink="/editHero/{{hero.id}}">
+      <mat-icon>edit</mat-icon>
+    </a>
+    <button mat-icon-button (click)="delete(hero)">
+      <mat-icon>delete</mat-icon>
+    </button>
 
-  </li>
-</ul>
+  </mat-list-item>
+</mat-list>
