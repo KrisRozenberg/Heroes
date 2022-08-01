@@ -1,0 +1,61 @@
+<form [formGroup]="heroForm" (ngSubmit)="onSubmit()">
+  <div>
+    <mat-form-field  appearance="fill" >
+      <mat-label>Hero name: </mat-label>
+      <input matInput placeholder="Mr. Super Hero" formControlName="name" value="{{hero?.name}}"/>
+      <mat-error *ngIf="heroForm.controls['name'].hasError('required')">
+        Name is required!
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Hero race:</mat-label>
+      <mat-select formControlName="race" value="{{hero?.race}}">
+        <mat-option [value]=0>Human</mat-option>
+        <mat-option [value]=1>Creature</mat-option>
+        <mat-option [value]=2>Homuncul</mat-option>
+      </mat-select>
+      <mat-error *ngIf="heroForm.controls['race'].hasError('required')">
+        Race is required!
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Hero class:</mat-label>
+      <mat-select formControlName="heroClass" value="{{hero?.heroClass}}">
+        <mat-option [value]=0>Warrior</mat-option>
+        <mat-option [value]=1>Mage</mat-option>
+        <mat-option [value]=2>Clown</mat-option>
+      </mat-select>
+      <mat-error *ngIf="heroForm.controls['heroClass'].hasError('required')">
+        Class is required!
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Hero level:</mat-label>
+      <input matInput placeholder="42" formControlName="level" value="{{hero?.level}}"/>
+      <mat-error *ngIf="heroForm.controls['level'].hasError('required')">
+        Level is required!
+      </mat-error>
+      <mat-error *ngIf="heroForm.controls['level'].hasError('pattern')">
+        Level must be a number!
+      </mat-error>
+      <mat-error *ngIf="
+        heroForm.controls['level'].hasError('min') || heroForm.controls['level'].hasError('max')">
+        Level must be from 1 to 99!
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <button mat-flat-button (click)="goBack()">Go back</button>
+    <button mat-flat-button type="submit" [disabled]="!isFormValid()">Save hero</button>
+  </div>
+</form>

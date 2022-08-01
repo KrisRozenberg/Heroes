@@ -13,6 +13,7 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { HeroFormComponent } from './hero-form/hero-form.component';
 
 
 
@@ -22,7 +23,8 @@ import { MaterialModule } from './material.module';
     HeroesComponent,
     HeroDetailComponent,
     DashboardComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    HeroFormComponent
   ],
     imports: [
         BrowserModule,
