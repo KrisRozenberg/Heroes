@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import { Observable, of} from 'rxjs';
+import {BehaviorSubject, Observable, of, Subject} from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Hero} from './hero';
@@ -12,8 +12,15 @@ export class HeroService {
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
+  public heroesNumber = new Subject<number>();
+  public lastEditedHero = new BehaviorSubject<string>("none");
 
   constructor(private http: HttpClient) { }
+
+  getHeroesNumber(): void {
+     this.getHeroes()
+      .subscribe(heroes => this.heroesNumber.next(heroes.length));
+  }
 
   getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl).pipe(
@@ -31,6 +38,7 @@ export class HeroService {
   }
 
   updateHero(hero: Hero): Observable<any> {
+    this.lastEditedHero.next(hero.name);
     return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
       tap(_ => console.log(`updated hero id=${hero.id}`)),
       catchError(this.handleError<any>('updateHero'))
@@ -38,6 +46,7 @@ export class HeroService {
   }
 
   addHero(hero: Hero): Observable<Hero> {
+    this.lastEditedHero.next(hero.name);
     return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
       tap((newHero: Hero) => console.log(`added hero w/ id=${newHero.id}`)),
       catchError(this.handleError<Hero>('addHero'))

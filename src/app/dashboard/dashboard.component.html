@@ -1,3 +1,4 @@
+<div class="mat-subheading-2" *ngIf="numberMessage">{{numberMessage}}</div>
 <div class="mat-title">Top Level Heroes</div>
 
 <div class="heroes-menu">
@@ -5,5 +6,7 @@
     {{hero.name}}
   </a>
 </div>
+
+<div class="mat-subheading-1" *ngIf="lastEditedMessage">{{lastEditedMessage}}</div>
 
 <app-hero-search></app-hero-search>

@@ -1,5 +1,5 @@
 <div *ngIf="path == 'addHero'; else notAdd">
-  <app-hero-form></app-hero-form>
+  <app-hero-form (saveHeroEvent)="saveHero($event)"></app-hero-form>
 </div>
 
 

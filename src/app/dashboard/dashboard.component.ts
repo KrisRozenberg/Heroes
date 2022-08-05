@@ -9,11 +9,15 @@ import { HeroService } from '../hero.service';
 })
 export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
+  numberMessage?: string;
+  lastEditedMessage?: string;
 
   constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
     this.getHeroes();
+    this.heroService.heroesNumber.subscribe(number => this.numberMessage = number + " heroes left!");
+    this.heroService.lastEditedHero.subscribe(name => this.lastEditedMessage = "Last edited Hero: " + name);
   }
 
   getHeroes(): void {

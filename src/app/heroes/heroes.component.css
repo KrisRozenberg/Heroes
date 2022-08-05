@@ -2,6 +2,10 @@
   color: #444;
 }
 
+.mat-subheading-2 {
+  color: rebeccapurple;
+}
+
 .mat-flat-button {
   color: white;
   background-color: #444444;

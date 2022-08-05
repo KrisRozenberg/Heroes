@@ -3,6 +3,10 @@
   color: #444;
 }
 
+.mat-subheading-2 {
+  color: rebeccapurple;
+}
+
 .heroes-menu {
   margin: 0 auto 20px;
   max-width: 1000px;

@@ -9,11 +9,15 @@ import { HeroService } from '../hero.service';
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
+  numberMessage?: string;
+  lastEditedMessage?: string;
 
   constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
     this.getHeroes();
+    this.heroService.heroesNumber.subscribe(number => this.numberMessage = number + " heroes left!");
+    this.heroService.lastEditedHero.subscribe(name => this.lastEditedMessage = "Last edited Hero: " + name);
   }
 
   getHeroes(): void {
@@ -24,5 +28,6 @@ export class HeroesComponent implements OnInit {
   delete(hero: Hero): void {
     this.heroes = this.heroes.filter(h => h !== hero);
     this.heroService.deleteHero(hero.id).subscribe();
+    this.heroService.getHeroesNumber();
   }
 }
