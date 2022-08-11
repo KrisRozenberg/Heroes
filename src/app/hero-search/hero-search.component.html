@@ -1,7 +1,7 @@
 <div id="search-component">
   <mat-form-field appearance="fill" >
-    <mat-label>Hero Search</mat-label>
-    <input matInput #searchBox (input)="search(searchBox.value)" placeholder="Some Hero"/>
+    <mat-label>{{'LABEL.SEARCH' | translate}}</mat-label>
+    <input matInput #searchBox (input)="search(searchBox.value)" placeholder="{{'LABEL.SEARCH_PLACEHOLDER' | translate}}"/>
   </mat-form-field>
 
   <mat-list>

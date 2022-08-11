@@ -1,0 +1,58 @@
+{
+  "TITLE": {
+    "LIST": "Мai героi",
+    "TOP": "Героi наiвышэйшага узроўня",
+    "INFO": "Iнфaрмацыя аб"
+  },
+  "NAVBAR": {
+    "DASHBOARD": "Дошка пашаны",
+    "HEROES": "Героi",
+    "ADD_HERO": "Дадаць героя",
+    "GET_NUMBER": "Агульны лiк герояў",
+    "LANGUAGE": "Мова"
+  },
+  "BUTTON": {
+    "BACK": "Назад",
+    "SAVE": "Захаваць"
+  },
+  "MESSAGE": {
+    "LAST_EDITED": "Апошнi зменены герой: ",
+    "LEFT_NUMBER": "Усяго герояў: "
+  },
+  "LABEL": {
+    "SEARCH": "Пошук героя",
+    "SEARCH_PLACEHOLDER": "Iмя героя",
+    "ADD_NAME": "Iмя героя:",
+    "ADD_NAME_PLACEHOLDER": "Супер-Герой",
+    "ADD_RACE": "Раса героя:",
+    "ADD_CLASS": "Клас героя:",
+    "ADD_LEVEL": "Узровень героя:",
+    "NAME": "iмя:",
+    "RACE": "раса:",
+    "CLASS": "клас:",
+    "LEVEL": "узровень:"
+  },
+  "ERROR": {
+    "NAME_REQUIRED": "Азначце iмя!",
+    "RACE_REQUIRED": "Азначце расу!",
+    "CLASS_REQUIRED": "Азначце класс!",
+    "LEVEL_REQUIRED": "Азначце узровень!",
+    "LEVEL_NUMBER": "Узровень павiнен быць лiкам!",
+    "LEVEL_INTERVAL": "Узровень павiнен быць ад 1 да 99!"
+  },
+  "HERO_CLASS": {
+    "WARRIOR": "Ваяр",
+    "MAGE": "Чараўнiк",
+    "CLOWN": "Блазан"
+  },
+  "HERO_RACE": {
+    "HUMAN": "Чалавек",
+    "CREATURE": "Iстота",
+    "HOMUNCUL": "Гамункул"
+  },
+  "LANGUAGE": {
+    "EN": "Ангельская",
+    "RU": "Руская",
+    "BY": "Беларуская"
+  }
+}

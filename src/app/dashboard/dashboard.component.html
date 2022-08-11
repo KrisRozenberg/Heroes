@@ -1,5 +1,5 @@
 <div class="mat-subheading-2" *ngIf="numberMessage">{{numberMessage}}</div>
-<div class="mat-title">Top Level Heroes</div>
+<div class="mat-title">{{'TITLE.TOP' | translate}}</div>
 
 <div class="heroes-menu">
   <a mat-flat-button *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}">

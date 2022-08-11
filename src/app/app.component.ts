@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {HeroService} from "./hero.service";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,8 @@ import {HeroService} from "./hero.service";
 export class AppComponent {
   title = 'Tour of Heroes';
 
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService,
+              public translateService: TranslateService) { }
 
   getHeroesNumber(): void {
     this.heroService.getHeroesNumber();

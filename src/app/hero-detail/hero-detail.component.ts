@@ -5,6 +5,7 @@ import {Hero} from "../hero";
 import { HeroService } from '../hero.service';
 import {HeroRace} from "../hero-race";
 import {HeroClass} from "../hero-class";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-hero-detail',
@@ -18,7 +19,8 @@ export class HeroDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private heroService: HeroService,
               private location: Location,
-              private router: Router) { }
+              private router: Router,
+              public translateService: TranslateService) { }
 
   ngOnInit(): void {
     this.path = this.route.routeConfig?.path;
@@ -57,11 +59,39 @@ export class HeroDetailComponent implements OnInit {
     }
   }
 
-  getHeroRace(value: HeroRace): string {
-    return HeroRace[value];
+  getHeroRace(value: HeroRace | undefined): string {
+    let race = "";
+    switch (value) {
+      case 0:
+        this.translateService.get("HERO_RACE.HUMAN").subscribe(heroRace => race = heroRace);
+        break;
+      case 1:
+        this.translateService.get("HERO_RACE.CREATURE").subscribe(heroRace => race = heroRace);
+        break;
+      case 2:
+        this.translateService.get("HERO_RACE.HOMUNCUL").subscribe(heroRace => race = heroRace);
+        break;
+      default:
+        race = "none";
+    }
+    return race;
   }
 
-  getHeroClass(value: HeroClass): string {
-    return HeroClass[value];
+  getHeroClass(value: HeroClass | undefined): string {
+    let heroClass = "";
+    switch (value) {
+      case 0:
+        this.translateService.get("HERO_CLASS.WARRIOR").subscribe(foundClass => heroClass = foundClass);
+        break;
+      case 1:
+        this.translateService.get("HERO_CLASS.MAGE").subscribe(foundClass => heroClass = foundClass);
+        break;
+      case 2:
+        this.translateService.get("HERO_CLASS.CLOWN").subscribe(foundClass => heroClass = foundClass);
+        break;
+      default:
+        heroClass = "none";
+    }
+    return heroClass;
   }
 }

@@ -1,10 +1,17 @@
 <div class="mat-headline">{{title}}</div>
 
 <nav>
-  <a mat-flat-button routerLink="/dashboard">Dashboard</a>
-  <a mat-flat-button routerLink="/heroes">Heroes</a>
-  <a mat-flat-button routerLink="/addHero">Add hero</a>
-  <button mat-flat-button (click)="getHeroesNumber()">Get heroes number</button>
+  <a mat-flat-button routerLink="/dashboard">{{'NAVBAR.DASHBOARD' | translate}}</a>
+  <a mat-flat-button routerLink="/heroes">{{'NAVBAR.HEROES' | translate}}</a>
+  <a mat-flat-button routerLink="/addHero">{{'NAVBAR.ADD_HERO' | translate}}</a>
+  <button mat-flat-button (click)="getHeroesNumber()">{{'NAVBAR.GET_NUMBER' | translate}}</button>
+
+  <button mat-flat-button [matMenuTriggerFor]="menu">{{'NAVBAR.LANGUAGE' | translate}}</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="translateService.use('en')">{{'LANGUAGE.EN' | translate}}</button>
+    <button mat-menu-item (click)="translateService.use('ru')">{{'LANGUAGE.RU' | translate}}</button>
+    <button mat-menu-item (click)="translateService.use('by')">{{'LANGUAGE.BY' | translate}}</button>
+  </mat-menu>
 </nav>
 <br>
 

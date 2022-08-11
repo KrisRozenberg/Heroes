@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-dashboard',
@@ -12,12 +13,21 @@ export class DashboardComponent implements OnInit {
   numberMessage?: string;
   lastEditedMessage?: string;
 
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService,
+              public translateService: TranslateService) { }
 
   ngOnInit(): void {
     this.getHeroes();
-    this.heroService.heroesNumber.subscribe(number => this.numberMessage = number + " heroes left!");
-    this.heroService.lastEditedHero.subscribe(name => this.lastEditedMessage = "Last edited Hero: " + name);
+
+    this.translateService.get("MESSAGE.LAST_EDITED").subscribe(message => {
+      let editedMessage = message;
+      this.heroService.lastEditedHero.subscribe(name => this.lastEditedMessage = editedMessage + name);
+    });
+
+    this.translateService.get("MESSAGE.LEFT_NUMBER").subscribe(message => {
+      let numberMessage = message;
+      this.heroService.heroesNumber.subscribe(number => this.numberMessage = numberMessage + number);
+    });
   }
 
   getHeroes(): void {

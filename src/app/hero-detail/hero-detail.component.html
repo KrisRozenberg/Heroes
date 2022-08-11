@@ -16,21 +16,21 @@
 
 
   <ng-template #view>
-    <div class="mat-title">{{hero?.name | uppercase}} Details</div>
+    <div class="mat-title">{{'TITLE.INFO' | translate}} {{hero?.name | uppercase}}</div>
 
     <mat-list>
       <mat-list-item>id: {{hero?.id}}</mat-list-item>
       <mat-divider></mat-divider>
-      <mat-list-item>name: {{hero?.name}}</mat-list-item>
+      <mat-list-item>{{'LABEL.NAME' | translate}} {{hero?.name}}</mat-list-item>
       <mat-divider></mat-divider>
-      <mat-list-item>race: {{hero ? getHeroRace(hero.race) : "none"}}</mat-list-item>
+      <mat-list-item>{{'LABEL.RACE' | translate}} {{getHeroRace(hero?.race)}}</mat-list-item>
       <mat-divider></mat-divider>
-      <mat-list-item>class: {{hero ? getHeroClass(hero.heroClass) : "none"}}</mat-list-item>
+      <mat-list-item>{{'LABEL.CLASS' | translate}} {{getHeroClass(hero?.heroClass)}}</mat-list-item>
       <mat-divider></mat-divider>
-      <mat-list-item>level: {{hero?.level}}</mat-list-item>
+      <mat-list-item>{{'LABEL.LEVEL' | translate}} {{hero?.level}}</mat-list-item>
     </mat-list>
 
-    <button mat-flat-button (click)="goBack()">Go back</button>
+    <button mat-flat-button (click)="goBack()">{{'BUTTON.BACK' | translate}}</button>
   </ng-template>
 </ng-template>
 

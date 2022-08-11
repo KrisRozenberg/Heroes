@@ -1,0 +1,58 @@
+{
+  "TITLE": {
+    "LIST": "Мои герои",
+    "TOP": "Герои наивысшего уровня",
+    "INFO": "Информация о"
+  },
+  "NAVBAR": {
+    "DASHBOARD": "Доска почёта",
+    "HEROES": "Герои",
+    "ADD_HERO": "Добавить героя",
+    "GET_NUMBER": "Общее число героев",
+    "LANGUAGE": "Язык"
+  },
+  "BUTTON": {
+    "BACK": "Назад",
+    "SAVE": "Сохранить"
+  },
+  "MESSAGE": {
+    "LAST_EDITED": "Последний изменённый герой: ",
+    "LEFT_NUMBER": "Всего героев: "
+  },
+  "LABEL": {
+    "SEARCH": "Поиск героя",
+    "SEARCH_PLACEHOLDER": "Имя героя",
+    "ADD_NAME": "Имя героя:",
+    "ADD_NAME_PLACEHOLDER": "Супер-Герой",
+    "ADD_RACE": "Раса героя:",
+    "ADD_CLASS": "Класс героя:",
+    "ADD_LEVEL": "Уровень героя:",
+    "NAME": "имя:",
+    "RACE": "раса:",
+    "CLASS": "класс:",
+    "LEVEL": "уровень:"
+  },
+  "ERROR": {
+    "NAME_REQUIRED": "Укажите имя!",
+    "RACE_REQUIRED": "Укажите расу!",
+    "CLASS_REQUIRED": "Укажите класс!",
+    "LEVEL_REQUIRED": "Укажите уровень!",
+    "LEVEL_NUMBER": "Уровень должен быть числом!",
+    "LEVEL_INTERVAL": "Уровень должен быть от 1 до 99!"
+  },
+  "HERO_CLASS": {
+    "WARRIOR": "Воин",
+    "MAGE": "Маг",
+    "CLOWN": "Клоун"
+  },
+  "HERO_RACE": {
+    "HUMAN": "Человек",
+    "CREATURE": "Существо",
+    "HOMUNCUL": "Гомункул"
+  },
+  "LANGUAGE": {
+    "EN": "Английский",
+    "RU": "Русский",
+    "BY": "Белорусский"
+  }
+}

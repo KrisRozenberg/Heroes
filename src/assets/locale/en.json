@@ -1,0 +1,58 @@
+{
+  "TITLE": {
+    "LIST": "My Heroes",
+    "TOP": "Top Level Heroes",
+    "INFO": "Info about"
+  },
+  "NAVBAR": {
+    "DASHBOARD": "Dashboard",
+    "HEROES": "Heroes",
+    "ADD_HERO": "Add hero",
+    "GET_NUMBER": "Get heroes number",
+    "LANGUAGE": "Language"
+  },
+  "BUTTON": {
+    "BACK": "Go back",
+    "SAVE": "Save hero"
+  },
+  "MESSAGE": {
+    "LAST_EDITED": "Last edited Hero: ",
+    "LEFT_NUMBER": "Heroes left: "
+  },
+  "LABEL": {
+    "SEARCH": "Hero Search",
+    "SEARCH_PLACEHOLDER": "Hero name",
+    "ADD_NAME": "Hero name:",
+    "ADD_NAME_PLACEHOLDER": "Mr. Super Hero",
+    "ADD_RACE": "Hero race:",
+    "ADD_CLASS": "Hero class:",
+    "ADD_LEVEL": "Hero level:",
+    "NAME": "name:",
+    "RACE": "race:",
+    "CLASS": "class:",
+    "LEVEL": "level:"
+  },
+  "ERROR": {
+    "NAME_REQUIRED": "Name is required!",
+    "RACE_REQUIRED": "Race is required!",
+    "CLASS_REQUIRED": "Class is required!",
+    "LEVEL_REQUIRED": "Level is required!",
+    "LEVEL_NUMBER": "Level must be a number!",
+    "LEVEL_INTERVAL": "Level must be from 1 to 99!"
+  },
+  "HERO_CLASS": {
+    "WARRIOR": "Warrior",
+    "MAGE": "Mage",
+    "CLOWN": "Clown"
+  },
+  "HERO_RACE": {
+    "HUMAN": "Human",
+    "CREATURE": "Creature",
+    "HOMUNCUL": "Homuncul"
+  },
+  "LANGUAGE": {
+    "EN": "English",
+    "RU": "Russian",
+    "BY": "Belorussian"
+  }
+}
